@@ -37,9 +37,9 @@ npm update
   --osx-sign.hardenedRuntime \
   --osx-sign.hardened-runtime \
   --no-osx-sign.gatekeeper-assess \
-  --osx-sign.entitlements="/Users/apple/go/src/github.com/pritunl/pritunl-client-electron/resources_osx/entitlements.plist" \
-  --osx-sign.entitlements-inherit="/Users/apple/go/src/github.com/pritunl/pritunl-client-electron/resources_osx/entitlements.plist" \
-  --osx-sign.entitlementsInherit="/Users/apple/go/src/github.com/pritunl/pritunl-client-electron/resources_osx/entitlements.plist" \
+  --osx-sign.entitlements="/Users/apple/go/src/github.com/JamesNguyen9x/test-ovpn/resources_osx/entitlements.plist" \
+  --osx-sign.entitlements-inherit="/Users/apple/go/src/github.com/JamesNguyen9x/test-ovpn/resources_osx/entitlements.plist" \
+  --osx-sign.entitlementsInherit="/Users/apple/go/src/github.com/JamesNguyen9x/test-ovpn/resources_osx/entitlements.plist" \
   --osx-sign.identity="Developer ID Application: Pritunl, Inc. (U22BLATN63)" \
   --osx-notarize.appleId="contact@pritunl.com" \
   --osx-notarize.appleIdPassword="@keychain:xcode" \

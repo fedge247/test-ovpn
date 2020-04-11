@@ -2,8 +2,8 @@ package handlers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/pritunl/pritunl-client-electron/service/autoclean"
-	"github.com/pritunl/pritunl-client-electron/service/profile"
+	"github.com/JamesNguyen9x/test-ovpn/service/autoclean"
+	"github.com/JamesNguyen9x/test-ovpn/service/profile"
 )
 
 func stopPost(c *gin.Context) {

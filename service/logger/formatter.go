@@ -3,7 +3,7 @@ package logger
 import (
 	"fmt"
 	"github.com/Sirupsen/logrus"
-	"github.com/pritunl/pritunl-client-electron/service/colorize"
+	"github.com/JamesNguyen9x/test-ovpn/service/colorize"
 	"sort"
 	"time"
 )

@@ -3,8 +3,8 @@ package watch
 import (
 	"fmt"
 	"github.com/Sirupsen/logrus"
-	"github.com/pritunl/pritunl-client-electron/service/profile"
-	"github.com/pritunl/pritunl-client-electron/service/utils"
+	"github.com/JamesNguyen9x/test-ovpn/service/profile"
+	"github.com/JamesNguyen9x/test-ovpn/service/utils"
 	"reflect"
 	"runtime"
 	"runtime/debug"

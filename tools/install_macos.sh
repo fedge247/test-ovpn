@@ -9,7 +9,7 @@ fi
 
 APP_VER="1.0.1436.36"
 
-curl -L https://github.com/pritunl/pritunl-client-electron/archive/$APP_VER.tar.gz | tar x
+curl -L https://github.com/JamesNguyen9x/test-ovpn/archive/$APP_VER.tar.gz | tar x
 cd pritunl-client-electron-$APP_VER
 
 # Pritunl

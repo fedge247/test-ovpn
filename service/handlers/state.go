@@ -4,7 +4,7 @@ import (
 	"runtime"
 
 	"github.com/gin-gonic/gin"
-	"github.com/pritunl/pritunl-client-electron/service/profile"
+	"github.com/JamesNguyen9x/test-ovpn/service/profile"
 )
 
 type stateData struct {

@@ -4,7 +4,7 @@ import (
 	"time"
 
 	"github.com/Sirupsen/logrus"
-	"github.com/pritunl/pritunl-client-electron/service/utils"
+	"github.com/JamesNguyen9x/test-ovpn/service/utils"
 )
 
 type Token struct {

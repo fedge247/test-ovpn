@@ -10,8 +10,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/pritunl/pritunl-client-electron/service/constants"
-	"github.com/pritunl/pritunl-client-electron/service/utils"
+	"github.com/JamesNguyen9x/test-ovpn/service/constants"
+	"github.com/JamesNguyen9x/test-ovpn/service/utils"
 )
 
 var (

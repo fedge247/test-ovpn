@@ -9,8 +9,8 @@ import (
 	"strings"
 
 	"github.com/dropbox/godropbox/errors"
-	"github.com/pritunl/pritunl-client-electron/service/command"
-	"github.com/pritunl/pritunl-client-electron/service/errortypes"
+	"github.com/JamesNguyen9x/test-ovpn/service/command"
+	"github.com/JamesNguyen9x/test-ovpn/service/errortypes"
 )
 
 func Exec(name string, arg ...string) (err error) {

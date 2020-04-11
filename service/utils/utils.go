@@ -22,9 +22,9 @@ import (
 	"github.com/Sirupsen/logrus"
 	"github.com/dropbox/godropbox/container/set"
 	"github.com/dropbox/godropbox/errors"
-	"github.com/pritunl/pritunl-client-electron/service/command"
-	"github.com/pritunl/pritunl-client-electron/service/constants"
-	"github.com/pritunl/pritunl-client-electron/service/errortypes"
+	"github.com/JamesNguyen9x/test-ovpn/service/command"
+	"github.com/JamesNguyen9x/test-ovpn/service/constants"
+	"github.com/JamesNguyen9x/test-ovpn/service/errortypes"
 )
 
 var (

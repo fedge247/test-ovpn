@@ -3,8 +3,8 @@ package logger
 import (
 	"github.com/Sirupsen/logrus"
 	"github.com/dropbox/godropbox/errors"
-	"github.com/pritunl/pritunl-client-electron/service/errortypes"
-	"github.com/pritunl/pritunl-client-electron/service/utils"
+	"github.com/JamesNguyen9x/test-ovpn/service/errortypes"
+	"github.com/JamesNguyen9x/test-ovpn/service/utils"
 	"os"
 )
 

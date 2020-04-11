@@ -10,7 +10,7 @@ import (
 const signtool = "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.18362.0\\x64\\signtool.exe"
 
 func main() {
-	cmd := exec.Command("git", "status")
+	cmd := exec.Command("git", "pull")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	err := cmd.Run()

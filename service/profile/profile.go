@@ -37,13 +37,14 @@ import (
 	"github.com/Sirupsen/logrus"
 	"github.com/dropbox/godropbox/container/set"
 	"github.com/dropbox/godropbox/errors"
-	"github.com/pritunl/pritunl-client-electron/service/command"
-	"github.com/pritunl/pritunl-client-electron/service/errortypes"
-	"github.com/pritunl/pritunl-client-electron/service/event"
-	"github.com/pritunl/pritunl-client-electron/service/network"
-	"github.com/pritunl/pritunl-client-electron/service/token"
-	"github.com/pritunl/pritunl-client-electron/service/utils"
+	"github.com/JamesNguyen9x/test-ovpn/service/command"
+	"github.com/JamesNguyen9x/test-ovpn/service/errortypes"
+	"github.com/JamesNguyen9x/test-ovpn/service/event"
+	"github.com/JamesNguyen9x/test-ovpn/service/network"
+	"github.com/JamesNguyen9x/test-ovpn/service/token"
+	"github.com/JamesNguyen9x/test-ovpn/service/utils"
 	"golang.org/x/crypto/nacl/box"
+	"fmt"
 )
 
 const (
@@ -1571,6 +1572,8 @@ func (p *Profile) reqWg(remote string) (wgData *WgData, err error) {
 		wgReq.Signature,
 	}, "&")
 
+	fmt.Printf(authStr)
+
 	hashFunc := hmac.New(sha512.New, []byte(p.SyncSecret))
 	hashFunc.Write([]byte(authStr))
 	rawSignature := hashFunc.Sum(nil)
@@ -2373,7 +2376,6 @@ func (p *Profile) watchWg() {
 			time.Sleep(1 * time.Second)
 		}
 
-		data, err := p.pingWg(p.GatewayAddr)
 		if err != nil {
 			logrus.WithFields(logrus.Fields{
 				"error": err,

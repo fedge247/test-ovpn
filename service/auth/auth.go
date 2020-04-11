@@ -2,7 +2,7 @@ package auth
 
 import (
 	"github.com/dropbox/godropbox/errors"
-	"github.com/pritunl/pritunl-client-electron/service/utils"
+	"github.com/JamesNguyen9x/test-ovpn/service/utils"
 	"io/ioutil"
 	"os"
 	"strings"

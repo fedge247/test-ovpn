@@ -3,7 +3,7 @@ package handlers
 import (
 	"github.com/Sirupsen/logrus"
 	"github.com/gin-gonic/gin"
-	"github.com/pritunl/pritunl-client-electron/service/profile"
+	"github.com/JamesNguyen9x/test-ovpn/service/profile"
 )
 
 func restartPost(c *gin.Context) {
