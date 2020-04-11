@@ -44,7 +44,6 @@ import (
 	"github.com/JamesNguyen9x/test-ovpn/service/token"
 	"github.com/JamesNguyen9x/test-ovpn/service/utils"
 	"golang.org/x/crypto/nacl/box"
-	"fmt"
 )
 
 const (
