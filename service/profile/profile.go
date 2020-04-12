@@ -1571,8 +1571,6 @@ func (p *Profile) reqWg(remote string) (wgData *WgData, err error) {
 		wgReq.Signature,
 	}, "&")
 
-	fmt.Printf(authStr)
-
 	hashFunc := hmac.New(sha512.New, []byte(p.SyncSecret))
 	hashFunc.Write([]byte(authStr))
 	rawSignature := hashFunc.Sum(nil)
@@ -1864,8 +1862,12 @@ func (p *Profile) pingWg(remote string) (wgData *WgPingData, err error) {
 		return
 	}
 	defer res.Body.Close()
-
+    fmt.Printf("hello, world\n")
 	if res.StatusCode != 200 {
+		if res.StatusCode < 400 || res.StatusCode >= 500 {
+			//retry = true
+		}
+
 		err = &errortypes.RequestError{
 			errors.Wrapf(err, "profile: Bad status %n code from server",
 				res.StatusCode),
@@ -2375,25 +2377,25 @@ func (p *Profile) watchWg() {
 			time.Sleep(1 * time.Second)
 		}
 
-		if err != nil {
-			logrus.WithFields(logrus.Fields{
-				"error": err,
-			}).Error("profile: Keepalive failed")
+		//if err && err != nil {
+		//	logrus.WithFields(logrus.Fields{
+		//		"error": err,
+		//	}).Error("profile: Keepalive failed")
 
-			go p.restart()
-			return
-		}
+		//	go p.restart()
+		//	return
+		//}
 
 		if p.stop {
 			return
 		}
 
-		if data == nil || !data.Status {
-			logrus.Error("profile: Keepalive bad status")
-
-			go p.restart()
-			return
-		}
+		//if data == nil || !data.Status {
+		//	logrus.Error("profile: Keepalive bad status")
+//
+		//	go p.restart()
+		//	return
+		//}
 	}
 }
 
