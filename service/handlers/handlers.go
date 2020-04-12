@@ -40,7 +40,7 @@ func Errors(c *gin.Context) {
 func Auth(c *gin.Context) {
 	if c.Request.Header.Get("Origin") != "" ||
 		c.Request.Header.Get("Referer") != "" ||
-		c.Request.Header.Get("User-Agent") != "pritunl" ||
+		c.Request.Header.Get("User-Agent") != "fvpn" ||
 		subtle.ConstantTimeCompare(
 			[]byte(c.Request.Header.Get("Auth-Key")),
 			[]byte(auth.Key)) != 1 {

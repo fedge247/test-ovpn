@@ -112,7 +112,7 @@ func main() {
 				panic(err)
 			}
 		} else {
-			listener, err := net.Listen("unix", "/var/run/pritunl.sock")
+			listener, err := net.Listen("unix", "/var/run/fvpn.sock")
 			if err != nil {
 				err = &errortypes.WriteError{
 					errors.Wrap(err, "main: Failed to create unix socket"),
@@ -123,7 +123,7 @@ func main() {
 				panic(err)
 			}
 
-			err = os.Chmod("/var/run/pritunl.sock", 0777)
+			err = os.Chmod("/var/run/fvpn.sock", 0777)
 			if err != nil {
 				err = &errortypes.WriteError{
 					errors.Wrap(err, "main: Failed to chmod unix socket"),

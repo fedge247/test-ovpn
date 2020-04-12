@@ -1,4 +1,4 @@
-// For OS X to detect removal of Pritunl.app and auto uninstall all files.
+// For OS X to detect removal of FVPN.app and auto uninstall all files.
 package autoclean
 
 import (
@@ -23,13 +23,13 @@ func clean() (err error) {
 
 	paths := []string{
 		filepath.Join(pathSep, "private", "var", "db", "receipts",
-			"com.pritunl.pkg.Pritunl.bom"),
+			"com.fvpn.pkg.FVPN.bom"),
 		filepath.Join(pathSep, "private", "var", "db", "receipts",
-			"com.pritunl.pkg.Pritunl.plist"),
+			"com.fvpn.pkg.FVPN.plist"),
 		filepath.Join(pathSep, "Library", "LaunchAgents",
-			"com.pritunl.client.plist"),
+			"com.fvpn.client.plist"),
 		filepath.Join(pathSep, "Library", "LaunchDaemons",
-			"com.pritunl.service.plist"),
+			"com.fvpn.service.plist"),
 	}
 
 	for _, path := range paths {
@@ -44,16 +44,16 @@ func clean() (err error) {
 	return
 }
 
-// Check for Pritunl.app and uninstall if missing
+// Check for FVPN.app and uninstall if missing
 func CheckAndClean() (err error) {
 	root := utils.GetRootDir()
 	if runtime.GOOS != "darwin" ||
-		root != "/Applications/Pritunl.app/Contents/Resources" {
+		root != "/Applications/FVPN.app/Contents/Resources" {
 
 		return
 	}
 
-	path := filepath.Join(pathSep, "Applications", "Pritunl.app")
+	path := filepath.Join(pathSep, "Applications", "FVPN.app")
 	if _, e := os.Stat(path); !os.IsNotExist(e) {
 		return
 	}
@@ -68,11 +68,11 @@ func CheckAndClean() (err error) {
 	return
 }
 
-// Watch for Pritunl.app removal for next 10 minutes and uninstall if missing
+// Watch for FVPN.app removal for next 10 minutes and uninstall if missing
 func CheckAndCleanWatch() {
 	root := utils.GetRootDir()
 	if runtime.GOOS != "darwin" ||
-		root != "/Applications/Pritunl.app/Contents/Resources" {
+		root != "/Applications/FVPN.app/Contents/Resources" {
 
 		return
 	}

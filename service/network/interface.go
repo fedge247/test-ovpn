@@ -51,12 +51,12 @@ func init() {
 	switch runtime.GOOS {
 	case "windows":
 		for i := 0; i < 10; i++ {
-			interfaces = append(interfaces, fmt.Sprintf("pritunl%d", i))
+			interfaces = append(interfaces, fmt.Sprintf("fvpn%d", i))
 		}
 		break
 	case "darwin":
 		for i := 0; i < 10; i++ {
-			interfaces = append(interfaces, fmt.Sprintf("pritunl%d", i))
+			interfaces = append(interfaces, fmt.Sprintf("fvpn%d", i))
 		}
 		break
 	default:

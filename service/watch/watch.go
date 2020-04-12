@@ -34,7 +34,7 @@ func parseDns(data string) (searchDomains, searchAddresses []string) {
 		if key == "" {
 			if strings.Contains(line, "<array>") {
 				key = strings.TrimSpace(strings.SplitN(line, ":", 2)[0])
-				if key == "Pritunl" {
+				if key == "FVPN" {
 					key = ""
 					continue
 				}
@@ -147,7 +147,7 @@ func dnsWatch() {
 			continue
 		}
 
-		vpn, _ := utils.GetScutilKey("State", "/Network/Pritunl/DNS")
+		vpn, _ := utils.GetScutilKey("State", "/Network/FVPN/DNS")
 		global, _ := utils.GetScutilKey("State", "/Network/Global/DNS")
 
 		if strings.Contains(global, "No such key") {
@@ -171,8 +171,8 @@ func dnsWatch() {
 
 			err = utils.CopyScutilKey(
 				"State",
-				fmt.Sprintf("/Network/Pritunl/Connection/%s", connIds[0]),
-				"/Network/Pritunl/DNS",
+				fmt.Sprintf("/Network/FVPN/Connection/%s", connIds[0]),
+				"/Network/FVPN/DNS",
 			)
 			if err != nil {
 				logrus.WithFields(logrus.Fields{
@@ -206,7 +206,7 @@ func dnsWatch() {
 						"error": err,
 					}).Error("watch: Failed to backup DNS settings")
 				} else {
-					err = utils.CopyScutilDns("/Network/Pritunl/DNS")
+					err = utils.CopyScutilDns("/Network/FVPN/DNS")
 					if err != nil {
 						logrus.WithFields(logrus.Fields{
 							"error": err,

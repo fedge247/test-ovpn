@@ -233,7 +233,7 @@ func RestoreScutilDns() (err error) {
 		return
 	}
 
-	restoreKey := fmt.Sprintf("/Network/Pritunl/Restore/%s", serviceId)
+	restoreKey := fmt.Sprintf("/Network/FVPN/Restore/%s", serviceId)
 	serviceKey := fmt.Sprintf("/Network/Service/%s/DNS", serviceId)
 
 	data, err := GetScutilKey("State", restoreKey)
@@ -250,7 +250,7 @@ func RestoreScutilDns() (err error) {
 		return
 	}
 
-	if strings.Contains(data, "Pritunl : true") {
+	if strings.Contains(data, "FVPN : true") {
 		err = CopyScutilKey("State", restoreKey, serviceKey)
 		if err != nil {
 			return
@@ -262,7 +262,7 @@ func RestoreScutilDns() (err error) {
 		return
 	}
 
-	if strings.Contains(data, "Pritunl : true") {
+	if strings.Contains(data, "FVPN : true") {
 		data, err = GetScutilKey("Setup", restoreKey)
 		if err != nil {
 			return
@@ -319,7 +319,7 @@ func BackupScutilDns() (err error) {
 		return
 	}
 
-	restoreKey := fmt.Sprintf("/Network/Pritunl/Restore/%s", serviceId)
+	restoreKey := fmt.Sprintf("/Network/FVPN/Restore/%s", serviceId)
 	serviceKey := fmt.Sprintf("/Network/Service/%s/DNS", serviceId)
 
 	data, err := GetScutilKey("State", serviceKey)
@@ -328,7 +328,7 @@ func BackupScutilDns() (err error) {
 	}
 
 	if strings.Contains(data, "No such key") ||
-		strings.Contains(data, "Pritunl : true") {
+		strings.Contains(data, "FVPN : true") {
 
 		return
 	}
@@ -348,7 +348,7 @@ func BackupScutilDns() (err error) {
 		if err != nil {
 			return
 		}
-	} else if !strings.Contains(data, "Pritunl : true") {
+	} else if !strings.Contains(data, "FVPN : true") {
 		err = CopyScutilKey("Setup", serviceKey, restoreKey)
 		if err != nil {
 			return
@@ -373,11 +373,11 @@ func GetScutilConnIds() (ids []string, err error) {
 	}
 
 	for _, line := range strings.Split(string(output), "\n") {
-		if !strings.Contains(line, "State:/Network/Pritunl/Connection/") {
+		if !strings.Contains(line, "State:/Network/FVPN/Connection/") {
 			continue
 		}
 
-		spl := strings.Split(line, "State:/Network/Pritunl/Connection/")
+		spl := strings.Split(line, "State:/Network/FVPN/Connection/")
 		if len(spl) == 2 {
 			ids = append(ids, strings.TrimSpace(spl[1]))
 		}
@@ -401,11 +401,11 @@ func ClearScutilKeys() (err error) {
 	}
 
 	for _, line := range strings.Split(string(output), "\n") {
-		if !strings.Contains(line, "State:/Network/Pritunl") {
+		if !strings.Contains(line, "State:/Network/FVPN") {
 			continue
 		}
 
-		if strings.Contains(line, "State:/Network/Pritunl/Restore") {
+		if strings.Contains(line, "State:/Network/FVPN/Restore") {
 			continue
 		}
 
@@ -470,14 +470,14 @@ func ResetNetworking() {
 
 		location := strings.TrimSpace(string(output))
 
-		if location == "pritunl-reset" {
+		if location == "fvpn-reset" {
 			return
 		}
 
 		err = command.Command(
 			"/usr/sbin/networksetup",
 			"-createlocation",
-			"pritunl-reset",
+			"fvpn-reset",
 		).Run()
 		if err != nil {
 			err = &CommandError{
@@ -493,7 +493,7 @@ func ResetNetworking() {
 		err = command.Command(
 			"/usr/sbin/networksetup",
 			"-switchtolocation",
-			"pritunl-reset",
+			"fvpn-reset",
 		).Run()
 		if err != nil {
 			err = &CommandError{
@@ -525,7 +525,7 @@ func ResetNetworking() {
 		err = command.Command(
 			"/usr/sbin/networksetup",
 			"-deletelocation",
-			"pritunl-reset",
+			"fvpn-reset",
 		).Run()
 		if err != nil {
 			err = &CommandError{
@@ -660,7 +660,7 @@ func GetAuthPath() (pth string) {
 
 	switch runtime.GOOS {
 	case "windows":
-		pth = filepath.Join("C:\\", "ProgramData", "Pritunl")
+		pth = filepath.Join("C:\\", "ProgramData", "FVPN")
 
 		err := os.MkdirAll(pth, 0755)
 		if err != nil {
@@ -674,7 +674,7 @@ func GetAuthPath() (pth string) {
 		break
 	case "linux", "darwin":
 		pth = filepath.Join(string(filepath.Separator),
-			"var", "run", "pritunl.auth")
+			"var", "run", "fvpn.auth")
 		break
 	default:
 		panic("profile: Not implemented")
@@ -695,14 +695,14 @@ func GetLogPath() (pth string) {
 			panic(err)
 		}
 
-		pth = filepath.Join(pth, "pritunl.log")
+		pth = filepath.Join(pth, "fvpn.log")
 
 		return
 	}
 
 	switch runtime.GOOS {
 	case "windows":
-		pth = filepath.Join("C:\\", "ProgramData", "Pritunl")
+		pth = filepath.Join("C:\\", "ProgramData", "FVPN")
 
 		err := os.MkdirAll(pth, 0755)
 		if err != nil {
@@ -712,11 +712,11 @@ func GetLogPath() (pth string) {
 			panic(err)
 		}
 
-		pth = filepath.Join(pth, "pritunl.log")
+		pth = filepath.Join(pth, "fvpn.log")
 		break
 	case "linux", "darwin":
 		pth = filepath.Join(string(filepath.Separator),
-			"var", "log", "pritunl.log")
+			"var", "log", "fvpn.log")
 		break
 	default:
 		panic("profile: Not implemented")
@@ -737,14 +737,14 @@ func GetLogPath2() (pth string) {
 			panic(err)
 		}
 
-		pth = filepath.Join(pth, "pritunl.log.1")
+		pth = filepath.Join(pth, "fvpn.log.1")
 
 		return
 	}
 
 	switch runtime.GOOS {
 	case "windows":
-		pth = filepath.Join("C:\\", "ProgramData", "Pritunl")
+		pth = filepath.Join("C:\\", "ProgramData", "FVPN")
 
 		err := os.MkdirAll(pth, 0755)
 		if err != nil {
@@ -754,15 +754,15 @@ func GetLogPath2() (pth string) {
 			panic(err)
 		}
 
-		pth = filepath.Join(pth, "pritunl.log.1")
+		pth = filepath.Join(pth, "fvpn.log.1")
 		break
 	case "darwin":
 		pth = filepath.Join(string(os.PathSeparator), "Applications",
-			"Pritunl.app", "Contents", "Resources", "pritunl.log.1")
+			"FVPN.app", "Contents", "Resources", "fvpn.log.1")
 		break
 	case "linux":
 		pth = filepath.Join(string(filepath.Separator),
-			"var", "log", "pritunl.log.1")
+			"var", "log", "fvpn.log.1")
 		break
 	default:
 		panic("profile: Not implemented")
@@ -779,7 +779,7 @@ func GetTempDir() (pth string, err error) {
 	}
 
 	if runtime.GOOS == "windows" {
-		pth = filepath.Join("C:\\", "ProgramData", "Pritunl")
+		pth = filepath.Join("C:\\", "ProgramData", "FVPN")
 
 		err = os.MkdirAll(pth, 0755)
 		if err != nil {
@@ -790,7 +790,7 @@ func GetTempDir() (pth string, err error) {
 			return
 		}
 	} else {
-		pth = filepath.Join(string(filepath.Separator), "tmp", "pritunl")
+		pth = filepath.Join(string(filepath.Separator), "tmp", "fvpn")
 		if _, err = os.Stat(pth); !os.IsNotExist(err) {
 			err = os.Chown(pth, os.Getuid(), os.Getuid())
 			if err != nil {
@@ -836,7 +836,7 @@ func GetPidPath() (pth string) {
 			panic(err)
 		}
 
-		pth = filepath.Join(pth, "pritunl.pid")
+		pth = filepath.Join(pth, "fvpn.pid")
 
 		return
 	}
@@ -844,7 +844,7 @@ func GetPidPath() (pth string) {
 	switch runtime.GOOS {
 	case "linux", "darwin":
 		pth = filepath.Join(string(filepath.Separator),
-			"var", "run", "pritunl.pid")
+			"var", "run", "fvpn.pid")
 		break
 	default:
 		panic("profile: Not implemented")

@@ -3,14 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>com.pritunl.service</string>
+	<string>com.fvpn.client</string>
+	<key>Program</key>
+	<string>/Applications/FVPN.app/Contents/MacOS/FVPN</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/Applications/Pritunl.app/Contents/Resources/pritunl-service</string>
+		<string>/Applications/FVPN.app/Contents/MacOS/FVPN</string>
+		<string>--no-main</string>
 	</array>
-	<key>KeepAlive</key>
+  <key>RunAtLoad</key>
 	<true/>
-	<key>Umask</key>
-	<integer>0</integer>
 </dict>
 </plist>

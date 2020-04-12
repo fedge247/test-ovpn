@@ -113,7 +113,7 @@ func getOpenvpnPath() (pth string) {
 		break
 	case "darwin":
 		pth = filepath.Join(string(os.PathSeparator), "Applications",
-			"Pritunl.app", "Contents", "Resources", "pritunl-openvpn")
+			"FVPN.app", "Contents", "Resources", "fvpn-openvpn")
 		break
 	case "linux":
 		pth = "openvpn"
@@ -162,11 +162,11 @@ func Clean() (err error) {
 
 	for i := 0; i < 10; i++ {
 		_, _ = utils.ExecOutput(
-			"sc.exe", "stop", fmt.Sprintf("WireGuardTunnel$pritunl%d", i),
+			"sc.exe", "stop", fmt.Sprintf("WireGuardTunnel$fvpn%d", i),
 		)
 		time.Sleep(100 * time.Millisecond)
 		_, _ = utils.ExecOutput(
-			"sc.exe", "delete", fmt.Sprintf("WireGuardTunnel$pritunl%d", i),
+			"sc.exe", "delete", fmt.Sprintf("WireGuardTunnel$fvpn%d", i),
 		)
 	}
 

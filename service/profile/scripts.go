@@ -39,7 +39,7 @@ open
 show State:/Network/Service/${SERVICE_ID}/DNS
 quit
 EOF
-grep Pritunl | sed -e 's/.*Pritunl : //'
+grep FVPN | sed -e 's/.*FVPN : //'
 )"
 SERVICE_SETUP="$(/usr/sbin/scutil <<-EOF
 open
@@ -52,21 +52,21 @@ if [ "$SERVICE_ORIG" != "true" ]; then
   /usr/sbin/scutil <<-EOF > /dev/null
 open
 get State:/Network/Service/${SERVICE_ID}/DNS
-set State:/Network/Pritunl/Restore/${SERVICE_ID}
+set State:/Network/FVPN/Restore/${SERVICE_ID}
 quit
 EOF
 
   if [[ $SERVICE_SETUP == *"No such key"* ]]; then
     /usr/sbin/scutil <<-EOF > /dev/null
 open
-remove Setup:/Network/Pritunl/Restore/${SERVICE_ID}
+remove Setup:/Network/FVPN/Restore/${SERVICE_ID}
 quit
 EOF
   else
     /usr/sbin/scutil <<-EOF > /dev/null
 open
 get Setup:/Network/Service/${SERVICE_ID}/DNS
-set Setup:/Network/Pritunl/Restore/${SERVICE_ID}
+set Setup:/Network/FVPN/Restore/${SERVICE_ID}
 quit
 EOF
   fi
@@ -78,11 +78,11 @@ open
 d.init
 d.add ServerAddresses * ${DNS_SERVERS}
 d.add SearchDomains * ${DNS_SEARCH}
-d.add Pritunl true
+d.add FVPN true
 set State:/Network/Service/${SERVICE_ID}/DNS
 set Setup:/Network/Service/${SERVICE_ID}/DNS
-set State:/Network/Pritunl/DNS
-set State:/Network/Pritunl/Connection/${CONN_ID}
+set State:/Network/FVPN/DNS
+set State:/Network/FVPN/Connection/${CONN_ID}
 quit
 EOF
 elif [ "$DNS_SERVERS" ]; then
@@ -90,11 +90,11 @@ elif [ "$DNS_SERVERS" ]; then
 open
 d.init
 d.add ServerAddresses * ${DNS_SERVERS}
-d.add Pritunl true
+d.add FVPN true
 set State:/Network/Service/${SERVICE_ID}/DNS
 set Setup:/Network/Service/${SERVICE_ID}/DNS
-set State:/Network/Pritunl/DNS
-set State:/Network/Pritunl/Connection/${CONN_ID}
+set State:/Network/FVPN/DNS
+set State:/Network/FVPN/Connection/${CONN_ID}
 quit
 EOF
 elif [ "$DNS_SEARCH" ]; then
@@ -102,11 +102,11 @@ elif [ "$DNS_SEARCH" ]; then
 open
 d.init
 d.add SearchDomains * ${DNS_SEARCH}
-d.add Pritunl true
+d.add FVPN true
 set State:/Network/Service/${SERVICE_ID}/DNS
 set Setup:/Network/Service/${SERVICE_ID}/DNS
-set State:/Network/Pritunl/DNS
-set State:/Network/Pritunl/Connection/${CONN_ID}
+set State:/Network/FVPN/DNS
+set State:/Network/FVPN/Connection/${CONN_ID}
 quit
 EOF
 fi
@@ -121,8 +121,8 @@ CONN_ID="$(echo ${config} | /sbin/md5)"
 
 /usr/sbin/scutil <<-EOF > /dev/null
 open
-remove State:/Network/Pritunl/Connection/${CONN_ID}
-remove State:/Network/Pritunl/DNS
+remove State:/Network/FVPN/Connection/${CONN_ID}
+remove State:/Network/FVPN/DNS
 quit
 EOF
 
