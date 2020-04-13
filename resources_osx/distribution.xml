@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <installer-gui-script minSpecVersion="1">
-    <title>Pritunl</title>
-    <organization>com.pritunl</organization>
+    <title>FVPN</title>
+    <organization>com.fvpn</organization>
     <domains enable_localSystem="true"/>
     <options customize="never" require-scripts="true" rootVolumeOnly="true"/>
     <background file="diagram.tiff" alignment="bottomleft" scaling="none"/>
     <welcome file="welcome.html" mime-type="text/html"/>
     <license file="license.txt"/>
-    <pkg-ref id="com.pritunl.pkg.Pritunl" version="0.1.0"
+    <pkg-ref id="com.fvpn.pkg.FVPN" version="0.1.0"
         auth="root">Build.pkg</pkg-ref>
     <choices-outline>
-        <line choice="com.pritunl.pkg.Pritunl"/>
+        <line choice="com.fvpn.pkg.FVPN"/>
     </choices-outline>
     <choice
-        id="com.pritunl.pkg.Pritunl"
+        id="com.fvpn.pkg.FVPN"
         visible="true"
-        title="Pritunl Client"
-        description="Pritunl OpenVPN Client"
+        title="FVPN Client"
+        description="FVPN OpenVPN Client"
         start_selected="true">
-      <pkg-ref id="com.pritunl.pkg.Pritunl"/>
+      <pkg-ref id="com.fvpn.pkg.FVPN"/>
     </choice>
 </installer-gui-script>

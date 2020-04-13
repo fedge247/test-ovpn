@@ -16,11 +16,11 @@ func main() {
 		panic(err)
 	}
 
-	cmd := exec.Command("taskkill.exe", "/F", "/IM", "pritunl.exe")
+	cmd := exec.Command("taskkill.exe", "/F", "/IM", "fvpn.exe")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
-	cmd = exec.Command("taskkill.exe", "/F", "/IM", "pritunl-service.exe")
+	cmd = exec.Command("taskkill.exe", "/F", "/IM", "fvpn-service.exe")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
@@ -29,15 +29,15 @@ func main() {
 	cmd.Stderr = os.Stderr
 	cmd.Run()
 	cmd = exec.Command(filepath.Join(rootDir, "nssm.exe"),
-		"stop", "pritunl")
+		"stop", "fvpn")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
-	cmd = exec.Command("taskkill.exe", "/F", "/IM", "pritunl.exe")
+	cmd = exec.Command("taskkill.exe", "/F", "/IM", "fvpn.exe")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
-	cmd = exec.Command("taskkill.exe", "/F", "/IM", "pritunl-service.exe")
+	cmd = exec.Command("taskkill.exe", "/F", "/IM", "fvpn-service.exe")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
@@ -93,67 +93,67 @@ func main() {
 	}()
 
 	cmd = exec.Command(filepath.Join(rootDir, "nssm.exe"),
-		"stop", "pritunl")
+		"stop", "fvpn")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
 	cmd = exec.Command(filepath.Join(rootDir, "nssm.exe"),
-		"remove", "pritunl", "confirm")
+		"remove", "fvpn", "confirm")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
 	cmd = exec.Command(filepath.Join(rootDir, "nssm.exe"),
-		"stop", "pritunl")
+		"stop", "fvpn")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
-	cmd = exec.Command("taskkill.exe", "/F", "/IM", "pritunl.exe")
+	cmd = exec.Command("taskkill.exe", "/F", "/IM", "fvpn.exe")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
-	cmd = exec.Command("taskkill.exe", "/F", "/IM", "pritunl-service.exe")
+	cmd = exec.Command("taskkill.exe", "/F", "/IM", "fvpn-service.exe")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
 	cmd = exec.Command(filepath.Join(rootDir, "nssm.exe"), "install",
-		"pritunl", filepath.Join(rootDir, "pritunl-service.exe"))
+		"fvpn", filepath.Join(rootDir, "fvpn-service.exe"))
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
-	cmd = exec.Command("sc.exe", "config", "pritunl",
+	cmd = exec.Command("sc.exe", "config", "fvpn",
 		fmt.Sprintf(`binPath="%s"`, filepath.Join(rootDir, "nssm.exe")))
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
 	cmd = exec.Command(filepath.Join(rootDir, "nssm.exe"),
-		"set", "pritunl", "DisplayName", "Pritunl Helper Service")
+		"set", "fvpn", "DisplayName", "FVPN Helper Service")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
 	cmd = exec.Command(filepath.Join(rootDir, "nssm.exe"),
-		"set", "pritunl", "Start", "SERVICE_AUTO_START")
+		"set", "fvpn", "Start", "SERVICE_AUTO_START")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
 	cmd = exec.Command(filepath.Join(rootDir, "nssm.exe"),
-		"set", "pritunl", "AppStdout",
-		"C:\\ProgramData\\Pritunl\\service.log")
+		"set", "fvpn", "AppStdout",
+		"C:\\ProgramData\\FVPN\\service.log")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
 	cmd = exec.Command(filepath.Join(rootDir, "nssm.exe"),
-		"set", "pritunl", "AppStderr",
-		"C:\\ProgramData\\Pritunl\\service.log")
+		"set", "fvpn", "AppStderr",
+		"C:\\ProgramData\\FVPN\\service.log")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
 	cmd = exec.Command(filepath.Join(rootDir, "nssm.exe"),
-		"set", "pritunl", "Start", "SERVICE_AUTO_START")
+		"set", "fvpn", "Start", "SERVICE_AUTO_START")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
 	cmd = exec.Command(filepath.Join(rootDir, "nssm.exe"),
-		"start", "pritunl")
+		"start", "fvpn")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()

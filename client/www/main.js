@@ -32,7 +32,7 @@ process.on('uncaughtException', function (error) {
   dialog.showMessageBox(null, {
     type: 'error',
     buttons: ['Exit'],
-    title: 'Pritunl - Process Error',
+    title: 'FVPN - Process Error',
     message: 'Error occured in main process:\n\n' + errorMsg,
   }).then(function() {
     app.quit();
@@ -48,9 +48,9 @@ if (process.argv.indexOf('--dev') !== -1) {
   authPath = path.join('..', 'dev', 'auth');
 } else {
   if (process.platform === 'win32') {
-    authPath = path.join('C:\\', 'ProgramData', 'Pritunl', 'auth');
+    authPath = path.join('C:\\', 'ProgramData', 'FVPN', 'auth');
   } else {
-    authPath = path.join(path.sep, 'var', 'run', 'pritunl.auth');
+    authPath = path.join(path.sep, 'var', 'run', 'fvpn.auth');
   }
 }
 
@@ -114,7 +114,7 @@ var checkService = function(callback) {
             dialog.showMessageBox(null, {
               type: 'warning',
               buttons: ['Exit'],
-              title: 'Pritunl - Service Error',
+              title: 'FVPN - Service Error',
               message: 'Unable to establish communication with helper ' +
                 'service, try restarting computer'
             }).then(function() {
@@ -127,7 +127,7 @@ var checkService = function(callback) {
             dialog.showMessageBox(null, {
               type: 'warning',
               buttons: ['Exit'],
-              title: 'Pritunl - Service Error',
+              title: 'FVPN - Service Error',
               message: 'Unable to communicate with helper service, ' +
               'try restarting computer'
             }).then(function() {
@@ -217,7 +217,7 @@ var openMainWin = function() {
     }
 
     main = new BrowserWindow({
-      title: 'Pritunl',
+      title: 'FVPN',
       icon: icon,
       frame: true,
       autoHideMenuBar: true,
@@ -273,7 +273,7 @@ var sync =  function() {
   var url;
   var headers = {
     'Auth-Key': constants.key,
-    'User-Agent': 'pritunl'
+    'User-Agent': 'fvpn'
   };
 
   if (constants.unixSocket) {
@@ -320,7 +320,7 @@ app.on('ready', function() {
         dialog.showMessageBox(null, {
           type: 'warning',
           buttons: ['Exit'],
-          title: 'Pritunl - Service Error',
+          title: 'FVPN - Service Error',
           message: 'Unable to establish communication with helper ' +
             'service, try restarting computer'
         }).then(function() {
@@ -393,10 +393,10 @@ app.on('ready', function() {
 
       var appMenu = Menu.buildFromTemplate([
         {
-          label: 'Pritunl',
+          label: 'FVPN',
           submenu: [
             {
-              label: 'Pritunl v' + constants.version
+              label: 'FVPN v' + constants.version
             },
             {
               label: 'Close',

@@ -1,2 +1,2 @@
 #!/bin/sh
-launchctl load /Library/LaunchDaemons/com.pritunl.service.plist
+launchctl load /Library/LaunchDaemons/com.fvpn.service.plist

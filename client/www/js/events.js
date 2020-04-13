@@ -6,7 +6,7 @@ var connect = function(callback) {
   var url;
   var headers = {
     'Auth-Key': constants.key,
-    'User-Agent': 'pritunl'
+    'User-Agent': 'fvpn'
   };
 
   if (constants.unixSocket) {

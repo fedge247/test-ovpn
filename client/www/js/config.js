@@ -6,7 +6,7 @@ var fs = require('fs');
 
 var loaded;
 var waiting = [];
-var pth = path.join(utils.getUserDataPath(), 'pritunl.json');
+var pth = path.join(utils.getUserDataPath(), 'fvpn.json');
 var settings = {
   disable_reconnect: false,
   disable_tray_icon: false

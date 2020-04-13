@@ -1,8 +1,8 @@
 [Unit]
-Description=Pritunl Client Daemon
+Description=FVPN Client Daemon
 
 [Service]
-ExecStart=/usr/bin/pritunl-client-electron-service
+ExecStart=/usr/bin/fvpn-client-electron-service
 
 [Install]
 WantedBy=multi-user.target

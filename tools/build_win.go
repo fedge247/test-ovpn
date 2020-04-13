@@ -30,7 +30,7 @@ func main() {
 		panic(err)
 	}
 
-	err = os.Remove(filepath.Join("build", "win", "Pritunl.exe"))
+	err = os.Remove(filepath.Join("build", "win", "FVPN.exe"))
 	if err != nil && !os.IsNotExist(err) {
 		panic(err)
 	}
@@ -106,7 +106,7 @@ func main() {
 	cmd = exec.Command(
 		".\\node_modules\\.bin\\electron-packager",
 		".\\",
-		"pritunl",
+		"fvpn",
 		"--platform=win32",
 		"--arch=x64",
 		"--icon=www\\img\\logo.ico",
@@ -122,12 +122,12 @@ func main() {
 	}
 
 	err = os.Chdir(filepath.Join("..", "build", "win",
-		"pritunl-win32-x64"))
+		"fvpn-win32-x64"))
 	if err != nil {
 		panic(err)
 	}
 
-	
+
 
 	err = os.Chdir(filepath.Join("..", "..", "..",
 		"resources_win", "post_install"))
@@ -165,11 +165,11 @@ func main() {
 	cmd = exec.Command(signtool,
 		"sign",
 		"/a",
-		"/n", "Pritunl",
+		"/n", "FVPN",
 		"/tr", "http://timestamp.digicert.com",
 		"/td", "sha256",
 		"/fd", "sha256",
-		"/d", "Pritunl",
+		"/d", "FVPN",
 		"nssm.exe",
 	)
 	cmd.Stdout = os.Stdout

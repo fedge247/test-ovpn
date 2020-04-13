@@ -28,7 +28,7 @@ var $systemLogs = $('.system-logs');
 var $serviceLogs = $('.service-logs');
 
 var readSystemLogs = function(callback) {
-  var pth = path.join(utils.getUserDataPath(), 'pritunl.log');
+  var pth = path.join(utils.getUserDataPath(), 'fvpn.log');
 
   fs.exists(pth, function(exists) {
     if (!exists) {
@@ -49,7 +49,7 @@ var readSystemLogs = function(callback) {
 };
 
 var clearSystemLogs = function(callback) {
-  var pth = path.join(utils.getUserDataPath(), 'pritunl.log');
+  var pth = path.join(utils.getUserDataPath(), 'fvpn.log');
 
   fs.exists(pth, function(exists) {
     if (!exists) {
@@ -72,9 +72,9 @@ var clearSystemLogs = function(callback) {
 var readServiceLogs = function(callback) {
   var pth;
   if (process.platform === 'win32') {
-    pth = path.join('C:\\', 'ProgramData', 'Pritunl', 'pritunl.log');
+    pth = path.join('C:\\', 'ProgramData', 'FVPN', 'fvpn.log');
   } else {
-    pth = path.join(path.sep, 'var', 'log', 'pritunl.log');
+    pth = path.join(path.sep, 'var', 'log', 'fvpn.log');
   }
 
   fs.exists(pth, function(exists) {
@@ -191,7 +191,7 @@ $('.main-menu .menu-version').click(function(evt) {
     return;
   }
 });
-$('.main-menu .menu-version').text('Pritunl v' + constants.version);
+$('.main-menu .menu-version').text('FVPN v' + constants.version);
 $('.main-menu .menu-system-logs').click(function (){
   closeServiceEditor();
   openSystemEditor();
@@ -210,7 +210,7 @@ $('.main-menu .menu-restart').click(function (){
   var url;
   var headers = {
     'Auth-Key': constants.key,
-    'User-Agent': 'pritunl'
+    'User-Agent': 'fvpn'
   };
 
   if (constants.unixSocket) {
@@ -268,7 +268,7 @@ $('.header .minimize').click(function(evt) {
 $('.header .logo').click(function() {
   var menu = Menu.buildFromTemplate([
     {
-      label: 'Pritunl v' + constants.version
+      label: 'FVPN v' + constants.version
     },
     {
       label: 'View System Logs',

@@ -420,7 +420,7 @@ var renderProfile = function(index, prfl) {
           remote.dialog.showMessageBox(
             {
               type: 'none',
-              title: 'Pritunl - Connecting to Server',
+              title: 'FVPN - Connecting to Server',
               message: 'Connecting to ' + data.name,
               detail: preConnectMsg,
               buttons: ['Disconnect', 'Connect'],
@@ -453,7 +453,7 @@ var renderProfile = function(index, prfl) {
       remote.dialog.showMessageBox(
         {
           type: 'none',
-          title: 'Pritunl - Connecting to Server',
+          title: 'FVPN - Connecting to Server',
           message: 'Connecting to ' + data.name,
           detail: preConnectMsg,
           buttons: ['Disconnect', 'Connect'],
@@ -484,7 +484,7 @@ var renderProfile = function(index, prfl) {
       remote.dialog.showMessageBox(
         {
           type: 'none',
-          title: 'Pritunl - Connecting to Server',
+          title: 'FVPN - Connecting to Server',
           message: 'Connecting to ' + data.name,
           detail: preConnectMsg,
           buttons: ['Disconnect', 'Connect'],

@@ -504,7 +504,7 @@ Profile.prototype.delete = function() {
 
   if (os.platform() === 'darwin') {
     childProcess.exec(
-      '/usr/bin/security delete-generic-password -s pritunl -a ' +
+      '/usr/bin/security delete-generic-password -s fvpn -a ' +
       this.id, function() {}.bind(this));
   }
 
@@ -576,10 +576,10 @@ Profile.prototype.extractKey = function() {
   if (os.platform() === 'darwin') {
     // -U not working
     childProcess.exec(
-      '/usr/bin/security delete-generic-password -s pritunl -a ' +
+      '/usr/bin/security delete-generic-password -s fvpn -a ' +
       this.id, function () {
       childProcess.exec(
-        '/usr/bin/security add-generic-password -U -s pritunl -a ' +
+        '/usr/bin/security add-generic-password -U -s fvpn -a ' +
         this.id + ' -w ' + keyData + ' login-keychain',
         function (err, stdout, stderr) {
           if (err) {
@@ -599,7 +599,7 @@ Profile.prototype.getFullData = function(callback) {
   }
 
   childProcess.exec(
-    '/usr/bin/security find-generic-password -w -s pritunl -a ' +
+    '/usr/bin/security find-generic-password -w -s fvpn -a ' +
     this.id, function(err, stdout, stderr) {
       if (err) {
         err = new errors.ProcessError(
@@ -879,7 +879,7 @@ Profile.prototype._auth = function(authType, mode, timeout, callback) {
   } else {
     callback(authType, function(user, pass) {
       service.start(this, mode, timeout, this.serverPublicKey,
-        this.serverBoxPublicKey, user || 'pritunl', pass);
+        this.serverBoxPublicKey, user || 'fvpn', pass);
     }.bind(this));
   }
 };

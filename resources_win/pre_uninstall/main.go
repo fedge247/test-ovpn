@@ -12,26 +12,26 @@ func main() {
 		panic(err)
 	}
 
-	cmd := exec.Command("taskkill.exe", "/F", "/IM", "pritunl.exe")
+	cmd := exec.Command("taskkill.exe", "/F", "/IM", "fvpn.exe")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
-	cmd = exec.Command("taskkill.exe", "/F", "/IM", "pritunl-service.exe")
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	cmd.Run()
-	cmd = exec.Command(filepath.Join(rootDir, "nssm.exe"),
-		"stop", "pritunl")
+	cmd = exec.Command("taskkill.exe", "/F", "/IM", "fvpn-service.exe")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
 	cmd = exec.Command(filepath.Join(rootDir, "nssm.exe"),
-		"remove", "pritunl", "confirm")
+		"stop", "fvpn")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
 	cmd = exec.Command(filepath.Join(rootDir, "nssm.exe"),
-		"stop", "pritunl")
+		"remove", "fvpn", "confirm")
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	cmd.Run()
+	cmd = exec.Command(filepath.Join(rootDir, "nssm.exe"),
+		"stop", "fvpn")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
@@ -44,11 +44,11 @@ func main() {
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
-	cmd = exec.Command("taskkill.exe", "/F", "/IM", "pritunl.exe")
+	cmd = exec.Command("taskkill.exe", "/F", "/IM", "fvpn.exe")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
-	cmd = exec.Command("taskkill.exe", "/F", "/IM", "pritunl-service.exe")
+	cmd = exec.Command("taskkill.exe", "/F", "/IM", "fvpn-service.exe")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()

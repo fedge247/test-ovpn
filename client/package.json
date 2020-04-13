@@ -1,5 +1,5 @@
 {
-  "name": "pritunl",
+  "name": "fvpn",
   "version": "1.0.2395.64",
   "main": "www/main.js",
   "dependencies": {

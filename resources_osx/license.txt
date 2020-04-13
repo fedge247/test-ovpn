@@ -1,4 +1,4 @@
-Copyright (c) 2015-2020 Pritunl
+Copyright (c) 2015-2020 FVPN
 
                                LICENSE SUMMARY
 
@@ -12,9 +12,9 @@ Copyright (c) 2015-2020 Pritunl
 
 This Agreement, signed on Nov 12, 2014 [hereinafter: Effective Date] governs
 the relationship between you, a private person, (hereinafter: Licensee) and
-Pritunl, a private person whose principal place of business is United States
+FVPN, a private person whose principal place of business is United States
 (Hereinafter: Licensor). This Agreement sets the terms, rights, restrictions
-and obligations on using [Pritunl] (hereinafter: The Software) created and
+and obligations on using [FVPN] (hereinafter: The Software) created and
 owned by Licensor, as detailed herein
 
                                 LICENSE GRANT

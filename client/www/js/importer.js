@@ -298,8 +298,8 @@ var importProfileUri = function(prflUri, callback) {
     return;
   }
 
-  if (prflUri.startsWith('pritunl:')) {
-    prflUri = prflUri.replace('pritunl:', 'https:');
+  if (prflUri.startsWith('fvpn:')) {
+    prflUri = prflUri.replace('fvpn:', 'https:');
   } else if (prflUri.startsWith('pts:')) {
     prflUri = prflUri.replace('pts:', 'https:');
   } else if (prflUri.startsWith('http:')) {

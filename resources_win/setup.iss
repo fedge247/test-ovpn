@@ -1,8 +1,8 @@
-#define MyAppName "Pritunl"
+#define MyAppName "FVPN"
 #define MyAppVersion "1.0.2395.64"
-#define MyAppPublisher "Pritunl"
-#define MyAppURL "https://pritunl.com/"
-#define MyAppExeName "pritunl.exe"
+#define MyAppPublisher "FVPN"
+#define MyAppURL "https://fvpn.com/"
+#define MyAppExeName "fvpn.exe"
 
 [Setup]
 AppId={#MyAppName}
@@ -20,7 +20,7 @@ OutputDir=..\build\
 OutputBaseFilename={#MyAppName}
 LicenseFile=license.txt
 SetupIconFile=..\client\www\img\logo.ico
-UninstallDisplayName=Pritunl Client
+UninstallDisplayName=FVPN Client
 UninstallDisplayIcon={app}\{#MyAppExeName}
 Compression=lzma
 SolidCompression=yes
@@ -33,20 +33,20 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: checkedonce
 
 [Files]
-Source: "..\build\win\pritunl-win32-x64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: PreInstall
+Source: "..\build\win\fvpn-win32-x64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: PreInstall
 Source: "..\tuntap_win\*"; DestDir: "{app}\tuntap"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "..\openvpn_win\*"; DestDir: "{app}\openvpn"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "..\resources_win\post_install\post_install.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\resources_win\pre_uninstall\pre_uninstall.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\service_win\nssm.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\service\service.exe"; DestDir: "{app}"; DestName: "pritunl-service.exe"; Flags: ignoreversion
+Source: "..\service\service.exe"; DestDir: "{app}"; DestName: "fvpn-service.exe"; Flags: ignoreversion
 
 [Code]
 var ResultCode: Integer;
 procedure PreInstall();
 begin
-    Exec('net.exe', 'stop pritunl', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
-    Exec('taskkill.exe', '/F /IM pritunl.exe', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
+    Exec('net.exe', 'stop fvpn', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
+    Exec('taskkill.exe', '/F /IM fvpn.exe', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
 end;
 
 [Icons]
@@ -59,7 +59,7 @@ Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: 
 Type: filesandordirs; Name: "{app}"
 
 [Run]
-Filename: "{app}\post_install.exe"; Flags: runhidden; StatusMsg: "Configuring Pritunl..."
+Filename: "{app}\post_install.exe"; Flags: runhidden; StatusMsg: "Configuring FVPN..."
 
 [UninstallRun]
 Filename: "{app}\pre_uninstall.exe"; Flags: runhidden

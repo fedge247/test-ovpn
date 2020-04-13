@@ -22,11 +22,11 @@ CONSTANTS_PATH = 'service/constants/constants.go'
 CONSTANTS_PATH2 = 'client/package.json'
 CONSTANTS_PATH3 = 'client/www/js/constants.js'
 CONSTANTS_PATH4 = 'resources_win/setup.iss'
-STABLE_PACUR_PATH = '../pritunl-pacur'
-TEST_PACUR_PATH = '../pritunl-pacur-test'
+STABLE_PACUR_PATH = '../fvpn-pacur'
+TEST_PACUR_PATH = '../fvpn-pacur-test'
 BUILD_KEYS_PATH = 'tools/build_keys.json'
-BUILD_TARGETS = ('pritunl-client-electron',)
-REPO_NAME = 'pritunl-client-electron'
+BUILD_TARGETS = ('fvpn-client-electron',)
+REPO_NAME = 'fvpn-client-electron'
 RELEASE_NAME = 'Pritunl Client'
 
 cur_date = datetime.datetime.utcnow()

@@ -43,7 +43,7 @@ var update = function(callback) {
   var url;
   var headers = {
     'Auth-Key': constants.key,
-    'User-Agent': 'pritunl'
+    'User-Agent': 'fvpn'
   };
 
   if (constants.unixSocket) {
@@ -82,7 +82,7 @@ var update = function(callback) {
 
 var start = function(prfl, mode, timeout, serverPubKey, serverBoxPubKey,
     username, password, callback) {
-  username = username || 'pritunl';
+  username = username || 'fvpn';
 
   if (serverPubKey && (mode === 'wg' || prfl.token || password)) {
     serverPubKey = serverPubKey.join('\n');
@@ -98,7 +98,7 @@ var start = function(prfl, mode, timeout, serverPubKey, serverBoxPubKey,
     var url;
     var headers = {
       'Auth-Key': constants.key,
-      'User-Agent': 'pritunl'
+      'User-Agent': 'fvpn'
     };
 
     if (constants.unixSocket) {
@@ -147,7 +147,7 @@ var stop = function(prfl, callback) {
   var url;
   var headers = {
     'Auth-Key': constants.key,
-    'User-Agent': 'pritunl'
+    'User-Agent': 'fvpn'
   };
 
   if (constants.unixSocket) {
@@ -188,7 +188,7 @@ var tokenUpdate = function(prfl, callback) {
   var url;
   var headers = {
     'Auth-Key': constants.key,
-    'User-Agent': 'pritunl'
+    'User-Agent': 'fvpn'
   };
 
   if (constants.unixSocket) {
@@ -230,7 +230,7 @@ var tokenDelete = function(prfl, callback) {
   var url;
   var headers = {
     'Auth-Key': constants.key,
-    'User-Agent': 'pritunl'
+    'User-Agent': 'fvpn'
   };
 
   if (constants.unixSocket) {
@@ -263,7 +263,7 @@ var ping = function(callback) {
   var url;
   var headers = {
     'Auth-Key': constants.key,
-    'User-Agent': 'pritunl'
+    'User-Agent': 'fvpn'
   };
 
   if (constants.unixSocket) {
@@ -290,7 +290,7 @@ var wakeup = function(callback) {
   var url;
   var headers = {
     'Auth-Key': constants.key,
-    'User-Agent': 'pritunl'
+    'User-Agent': 'fvpn'
   };
 
   if (constants.unixSocket) {
@@ -317,7 +317,7 @@ var state = function(callback) {
   var url;
   var headers = {
     'Auth-Key': constants.key,
-    'User-Agent': 'pritunl'
+    'User-Agent': 'fvpn'
   };
 
   if (constants.unixSocket) {
