@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"github.com/Sirupsen/logrus"
+	"github.com/sirupsen/logrus"
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
 	"github.com/JamesNguyen9x/test-ovpn/service/event"

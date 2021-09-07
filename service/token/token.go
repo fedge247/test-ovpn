@@ -3,7 +3,7 @@ package token
 import (
 	"time"
 
-	"github.com/Sirupsen/logrus"
+	"github.com/sirupsen/logrus"
 	"github.com/JamesNguyen9x/test-ovpn/service/utils"
 )
 

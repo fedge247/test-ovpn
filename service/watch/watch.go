@@ -2,7 +2,7 @@ package watch
 
 import (
 	"fmt"
-	"github.com/Sirupsen/logrus"
+	"github.com/sirupsen/logrus"
 	"github.com/JamesNguyen9x/test-ovpn/service/profile"
 	"github.com/JamesNguyen9x/test-ovpn/service/utils"
 	"reflect"

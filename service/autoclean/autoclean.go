@@ -2,7 +2,7 @@
 package autoclean
 
 import (
-	"github.com/Sirupsen/logrus"
+	"github.com/sirupsen/logrus"
 	"github.com/dropbox/godropbox/errors"
 	"github.com/JamesNguyen9x/test-ovpn/service/command"
 	"github.com/JamesNguyen9x/test-ovpn/service/utils"
