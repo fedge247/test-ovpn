@@ -52,9 +52,9 @@ func Auth(c *gin.Context) {
 }
 
 func Register(engine *gin.Engine) {
-	engine.Use(Auth)
-	engine.Use(Recovery)
-	engine.Use(Errors)
+	// engine.Use(Auth)
+	// engine.Use(Recovery)
+	// engine.Use(Errors)
 
 	engine.GET("/events", eventsGet)
 	engine.GET("/profile", profileGet)
